@@ -1,3 +1,3 @@
 # Re-former
 
-Forms practice Rails app.
+Rails Forms practice.
