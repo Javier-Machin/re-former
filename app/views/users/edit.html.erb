@@ -14,7 +14,7 @@
 
 <% if @user.errors.any? %>
   <div id="error_messages">
-    <h2><%= pluralize(@user.errors.count, "Error") %> found:</h2>
+    <h3><%= pluralize(@user.errors.count, "Error") %> found:</h3>
     <ul>
     <% @user.errors.messages.each do |message| %>
       <li><%= "#{message[0].to_s.capitalize} #{message[1][0].to_s}" %></li>
