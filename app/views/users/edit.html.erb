@@ -1,10 +1,35 @@
+<% if @user.errors.any? %>
+  <head>
+    <style>
+    <% @user.errors.messages.each do |error| %>
+      <% if ["username","email","password"].any? { |word| error[0].to_s == word } %>
+           #user_<%= error[0].to_s %> {
+             border-color: red;
+           }
+      <% end %>
+    <% end %>
+    </style>
+  </head>
+<% end %>
+
+<% if @user.errors.any? %>
+  <div id="error_messages">
+    <h2><%= pluralize(@user.errors.count, "Error") %> found:</h2>
+    <ul>
+    <% @user.errors.messages.each do |message| %>
+      <li><%= "#{message[0].to_s.capitalize} #{message[1][0].to_s}" %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @user do |f| %>
-  <%= f.label :username, 'Username: ' %>
-  <%= f.text_field :username, value: @user.username %>
-  <%= f.label :email, 'Email: ' %> 
-  <%= f.text_field :email, value: @user.email %>
-  <%= f.label :password, 'Password: ' %>  
-  <%= f.password_field :password, value: @user.password %>
+  <%= f.label :username, 'Username: ' %><br>
+  <%= f.text_field :username %><br>
+  <%= f.label :email, 'Email: ' %><br>
+  <%= f.text_field :email %><br>
+  <%= f.label :password, 'Password: ' %><br>
+  <%= f.password_field :password %><br>
   <%= f.submit "Submit" %>
 <% end %>
 
