@@ -1,18 +1,4 @@
 <% if @user.errors.any? %>
-  <head>
-    <style>
-    <% @user.errors.messages.each do |error| %>
-      <% if ["username","email","password"].any? { |word| error[0].to_s == word } %>
-           #user_<%= error[0].to_s %> {
-             border-color: red;
-           }
-      <% end %>
-    <% end %>
-    </style>
-  </head>
-<% end %>
-
-<% if @user.errors.any? %>
   <div id="error_messages">
     <h3><%= pluralize(@user.errors.count, "Error") %> found:</h3>
     <ul>
