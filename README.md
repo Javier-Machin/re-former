@@ -1,3 +1,5 @@
 # Re-former
 
-Rails Forms practice.
+Rails app to practise forms.
+
+Aplicación hecha en Rails para practicar formularios.
